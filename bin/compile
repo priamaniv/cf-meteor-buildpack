@@ -71,7 +71,6 @@ build() {
   (
     cd $BUILD_DIR
     status "Building meteor bundle"
-    ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
     meteor --version
     meteor npm install
     meteor build --debug --directory deploy --server http://localhost:3000
