@@ -71,8 +71,8 @@ build() {
   (
     cd $BUILD_DIR
     status "Building meteor bundle"
-    meteor build --debug --directory --architecture os.linux.x86_64 deploy --server http://localhost:3000
     ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+    meteor build --debug --directory --architecture os.linux.x86_64 deploy --server http://localhost:3000
     cd deploy/bundle/programs/server
     status "Installing npm dependencies"
     npm install 2>&1 | indent
