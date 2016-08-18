@@ -79,7 +79,7 @@ build() {
     meteor npm install
     status "meteor building"
     ls
-    meteor build --debug --directory deploy --server http://localhost:3000
+    meteor build --debug --directory ../deploy --server http://localhost:3000
     cd deploy/bundle/programs/server
     pwd
     status "Installing npm dependencies"
