@@ -80,7 +80,7 @@ build() {
     status "meteor building"
     ls
     meteor build ../deploy --server http://localhost:3000
-    tar xvfz Unwired.tar.gz
+    tar xvfz ../deploy/Unwired.tar.gz
     cd deploy/bundle/programs/server
     pwd
     status "Installing npm dependencies"
