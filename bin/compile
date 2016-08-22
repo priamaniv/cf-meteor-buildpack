@@ -77,14 +77,18 @@ build() {
     meteor npm prune --production
     status "npm install"
     meteor npm install
+    
+    status "Installing npm dependencies"
+    node --version
+    npm --version
+    npm install 2>&1 | indent
+    
     status "meteor building"
     meteor build --directory deploy --server http://localhost:3000
     cd deploy/bundle/programs/server
     pwd
     free -m
-    status "Installing npm dependencies"
-    node --version
-    npm --version
+    status "Installing npm dependencies 2"
     npm install 2>&1 | indent
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
   )
