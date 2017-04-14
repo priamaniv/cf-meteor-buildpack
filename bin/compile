@@ -80,6 +80,7 @@ build() {
     
     status "meteor building"
     meteor build --directory deploy --server http://localhost:3000
+    ls
     cd deploy/bundle/programs/server
     pwd
     free -m
