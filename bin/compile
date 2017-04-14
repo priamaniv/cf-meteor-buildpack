@@ -85,7 +85,8 @@ build() {
     pwd
     free -m
     status "Installing npm dependencies 2"
-    npm install 2>&1 | indent
+    # npm install 2>&1 | indent
+    meteor npm install
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
   )
 }
