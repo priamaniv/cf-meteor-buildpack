@@ -84,6 +84,7 @@ build() {
     cd deploy/bundle/programs/server
     pwd
     free -m
+    df -k
     status "Installing npm dependencies 2"
     npm install 2>&1 | indent
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
