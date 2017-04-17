@@ -76,8 +76,8 @@ build() {
     status "NPM Prune"
     meteor npm prune --production
     status "npm install"
-    npm config set production
-    npm install --production 2>&1 | indent
+    # npm config set production
+    meteor npm install --production 2>&1 | indent
     
     status "meteor building"
     meteor build --directory deploy --server http://localhost:3000
@@ -91,7 +91,7 @@ build() {
 [ ! -d $BUILD_DIR ] && mkdir $BUILD_DIR
 [ ! -d $CACHE_DIR ] && mkdir $CACHE_DIR
 
-install_node
+# install_node
 install_meteor
 build
 
