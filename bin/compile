@@ -76,6 +76,7 @@ build() {
     status "NPM Prune"
     meteor npm prune --production
     status "npm install"
+    npm config set production
     npm install 2>&1 | indent
     
     status "meteor building"
