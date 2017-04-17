@@ -77,7 +77,7 @@ build() {
     meteor npm prune --production
     status "npm install"
     npm config set production
-    meteor npm install 2>&1 | indent
+    meteor npm install --production 2>&1 | indent
     
     status "meteor building"
     meteor build --directory deploy --server http://localhost:3000
