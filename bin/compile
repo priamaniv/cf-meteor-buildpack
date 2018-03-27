@@ -81,7 +81,7 @@ build() {
     meteor npm dedupe
     
     status "meteor building"
-    meteor build --directory deploy --server http://localhost:3000
+    meteor build --directory deploy --server-only --architecture os.linux.x86_64
     ls
     cd deploy/bundle/programs/server
     pwd
