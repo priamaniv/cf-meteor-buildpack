@@ -74,9 +74,11 @@ build() {
     meteor --version
     pwd
     status "NPM Prune"
+    meteor npm config set production
     meteor npm prune --production
     status "npm install"
     meteor npm install
+    meteor npm dedupe
     
     status "meteor building"
     meteor build --directory deploy --server http://localhost:3000
