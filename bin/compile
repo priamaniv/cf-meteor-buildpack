@@ -15,6 +15,12 @@ indent() {
 
 status() {
   echo "-----> $*"
+  du -kh --max-depth=2 /home/vcap/app/
+  echo "---------"
+  df -kh
+  echo "---------"
+  free -m
+  echo "---------"
 }
 
 node_version=$(curl --silent --get https://semver.io/node/resolve/8.8.x)
@@ -83,8 +89,6 @@ build() {
     ls
     cd deploy/bundle/programs/server
     pwd
-    free -m
-    df -k
     status "Installing npm dependencies 2"
     npm install 2>&1 | indent
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
