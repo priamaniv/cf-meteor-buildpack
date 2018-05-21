@@ -86,7 +86,7 @@ build() {
     
     status "meteor building w/profiling"
     METEOR_PROFILE=100 meteor build --directory deploy --server http://localhost:3000
-    ls
+    
     cd deploy/bundle/programs/server
     pwd
     status "Installing npm dependencies 2"
