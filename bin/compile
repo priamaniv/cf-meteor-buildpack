@@ -84,8 +84,8 @@ build() {
     status "npm install"
     meteor npm install
     
-    status "meteor building w/profiling"
-    METEOR_PROFILE=100 meteor build --directory deploy --server http://localhost:3000
+    status "meteor building w/profiling & debug"
+    METEOR_PROFILE=100 METEOR_DEBUG_BUILD=1 meteor build --directory deploy --server http://localhost:3000
     
     cd deploy/bundle/programs/server
     pwd
