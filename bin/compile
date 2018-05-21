@@ -16,7 +16,7 @@ indent() {
 status() {
   echo "`date`  ----->  $*"
   echo "du -kh $BUILD_DIR"
-  du -kh --max-depth=3 $BUILD_DIR
+  du -kh --max-depth=2 $BUILD_DIR
   echo "---------"
   echo "df -kh"
   df -kh
