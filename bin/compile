@@ -14,11 +14,14 @@ indent() {
 }
 
 status() {
-  echo "-----> $*"
-  du -kh --max-depth=2 /home/vcap/app/
+  echo "`date`  ----->  $*"
+  echo "du -kh $BUILD_DIR"
+  du -kh --max-depth=3 $BUILD_DIR
   echo "---------"
+  echo "df -kh"
   df -kh
   echo "---------"
+  echo "free -m"
   free -m
   echo "---------"
 }
@@ -85,7 +88,7 @@ build() {
     meteor npm install
     
     status "meteor building w/profiling & debug"
-    METEOR_PROFILE=100 METEOR_DEBUG_BUILD=1 meteor build --directory deploy --server http://localhost:3000
+    METEOR_PROFILE=1 METEOR_DEBUG_BUILD=1 meteor build --directory deploy --server http://localhost:3000
     
     cd deploy/bundle/programs/server
     pwd
@@ -97,6 +100,9 @@ build() {
 
 [ ! -d $BUILD_DIR ] && mkdir $BUILD_DIR
 [ ! -d $CACHE_DIR ] && mkdir $CACHE_DIR
+
+echo "BUILD_DIR = $BUILD_DIR"
+echo "CACHE_DIR = $CACHE_DIR"
 
 install_node
 install_meteor
