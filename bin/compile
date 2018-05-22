@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUILD_DIR=/dev/shm
+BUILD_DIR=$1
 CACHE_DIR=$2
 METEOR_HOME=$BUILD_DIR/.meteor/local
 PATH=$METEOR_HOME/usr/bin:$METEOR_HOME/usr/lib/meteor/bin:$PATH
@@ -14,9 +14,10 @@ indent() {
 }
 
 status() {
+  echo " "
   echo "`date`  ----->  $*"
-  echo "du -kh $BUILD_DIR"
-  du -kh --max-depth=2 $BUILD_DIR
+  echo "du -kh /tmp"
+  du -kh --max-depth=2 /tmp
   echo "---------"
   echo "df -kh"
   df -kh
@@ -24,6 +25,7 @@ status() {
   echo "free -m"
   free -m
   echo "---------"
+  echo " "
 }
 
 node_version=$(curl --silent --get https://semver.io/node/resolve/8.8.x)
@@ -84,7 +86,7 @@ build() {
     pwd
     status "NPM Prune"
     meteor npm prune --production
-    status "npm install"
+    status "NPM install"
     meteor npm install
     
     status "meteor building w/profiling & debug"
