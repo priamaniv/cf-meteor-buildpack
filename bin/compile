@@ -17,8 +17,9 @@ status() {
   echo " "
   echo "`date`  ----->  $*"
   echo "du -kh /tmp"
-  du -kh --max-depth=2 /
+  du -kh --max-depth=2 /home/vcap
   du -kh --max-depth=2 /tmp
+  du -kh --max-depth=2 /usr/lib
   echo "---------"
   echo "df -kh"
   df -kh
@@ -84,13 +85,14 @@ build() {
     cd $BUILD_DIR
     status "Building meteor bundle"
     meteor --version
-    pwd
-    # status "NPM Prune"
-    # meteor npm prune --production
-    status "NPM install"
+    
+    status "NPM Install"
     meteor npm install
     
-    status "meteor building w/profiling & debug"
+    status "NPM Prune"
+    meteor npm prune --production
+    
+    status "Meteor Build"
     METEOR_PROFILE=1 METEOR_DEBUG_BUILD=1 meteor build --directory deploy --server http://localhost:3000
     
     cd deploy/bundle/programs/server
