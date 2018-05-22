@@ -89,8 +89,8 @@ build() {
     status "NPM Install"
     meteor npm install
     
-    status "NPM Prune"
-    meteor npm prune --production
+   # status "NPM Prune"
+   # meteor npm prune --production
     
     status "Meteor Build"
     METEOR_PROFILE=1 METEOR_DEBUG_BUILD=1 meteor build --directory deploy --server http://localhost:3000
