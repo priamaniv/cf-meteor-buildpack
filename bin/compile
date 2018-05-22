@@ -85,8 +85,8 @@ build() {
     status "Building meteor bundle"
     meteor --version
     pwd
-    status "NPM Prune"
-    meteor npm prune --production
+    # status "NPM Prune"
+    # meteor npm prune --production
     status "NPM install"
     meteor npm install
     
