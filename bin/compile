@@ -17,6 +17,7 @@ status() {
   echo " "
   echo "`date`  ----->  $*"
   echo "du -kh /tmp"
+  du -kh --max-depth=2 /
   du -kh --max-depth=2 /tmp
   echo "---------"
   echo "df -kh"
