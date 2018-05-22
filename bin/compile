@@ -17,9 +17,9 @@ status() {
   echo " "
   echo "`date`  ----->  $*"
   echo "du -kh /tmp"
-  du -kh --max-depth=2 /home/vcap
-  du -kh --max-depth=2 /tmp
-  du -kh --max-depth=2 /usr/lib
+  du -kh --max-depth=2 /home/vcap/.meteor/packages
+  du -kh --max-depth=2 /home/vcap/.meteor/packages_metadata
+  du -kh --max-depth=2 /tmp/app
   echo "---------"
   echo "df -kh"
   df -kh
