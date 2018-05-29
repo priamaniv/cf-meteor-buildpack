@@ -95,6 +95,13 @@ build() {
     status "Meteor Build"
     METEOR_DEBUG_BUILD=1 meteor build --directory deploy --server http://localhost:3000
     
+    rm -rf /home/vcap/.meteor/packages/standard-minifier-js
+    rm -rf /home/vcap/.meteor/packages/standard-minifier-css
+    rm -rf /home/vcap/.meteor/packages/less
+    rm -rf /home/vcap/.meteor/packages/minifier-css
+    status "Cleaned up a little"
+    
+    
     status "NPM install 2"
     cd deploy/bundle/programs/server
     pwd
