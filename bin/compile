@@ -93,6 +93,7 @@ build() {
     meteor npm install
         
     status "Meteor Build"
+    meteor add force-ssl
     METEOR_DEBUG_BUILD=1 meteor build --directory deploy --server http://localhost:3000
     
     rm -rf /home/vcap/.meteor/packages/standard-minifier-js
